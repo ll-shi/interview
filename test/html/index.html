@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jsencrypt/2.3.1/jsencrypt.js"></script>
+  <script>
+    // 加密公钥
+    let publicKey = `MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDX+W7JiJu9zMc+MFHOdfJrjeq8
+bwzLuakFkdFA3wwHItPNEtRWS9u9My0ZtMR8ueBSXwUTKHarJjnQVLckOidi0af0
+WKmXu2gnIaaH2vRi2sc/D8LQ0BM8aGCV/o7YLZx339DKjHLeb89SP1fuWKCf1hVt
+APj+m+fnM9+6bkRzFwIDAQAB
+`
+    // 解密的私钥
+    let privateKey = `MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANf5bsmIm73Mxz4w
+Uc518muN6rxvDMu5qQWR0UDfDAci080S1FZL270zLRm0xHy54FJfBRModqsmOdBU
+tyQ6J2LRp/RYqZe7aCchpofa9GLaxz8PwtDQEzxoYJX+jtgtnHff0MqMct5vz1I/
+V+5YoJ/WFW0A+P6b5+cz37puRHMXAgMBAAECgYA/NPTDboOF7KRzAtkuPz6PU51b
+QHTSOqfIxYAkKCLxA7RQ1C3og5LvsEaGu2y1xABumvh1PuZb+Hf7DI/8vjhAHVTd
+5xYU7b1iq35mrJ5gUhpSnePC7DGBrrp5i9wOWMwO4oMS1G5NrjEKYwKkQwwbVR8/
+0/3oewzozV5YTWLeAQJBAP/MPUqDCODOReitJTdkwK+2ZjwixCEdo/2XCvVnvYI1
+sAfTthi0O9IPRi5AB0sPi7WZKuD8g/hEoXxz1UqRVcECQQDYJSKUzDlGGHWh0NWL
+haMfcfOtr/LYAn2PMknevZQC37X6PPfy9JVQ1XLJUyyK+PEWXEQA8bAs74OCrz/n
+fO7XAkEAohqQjPPVYIHYE8gGWcBjy/bPezSdDk92aXKa40JG+omDcLJeJ/GwJ0K+
+uvigppTHeOIEJmhgSalUnUXa2VKZAQJAIFPdijfJUSyTW3JqngWM0kUu1wl73sbw
+lJxG5COioZNoGldIFnRyaLakBmyEOvzkwh1mpmV/nhjsqH0hp7PN3QJBAJbK23eA
+Ag/tEEdZTrcCinjmGpUEJhChltOVI6A3lMpbAq03AVXHHR99GMEvYkJMICnzbeKg
+wcM+f2zyMCuEz1U=`;
+    let safe = function(sourceCode){
+      let crypt = new JSEncrypt(); //创建一个crypt对象。
+      crypt.setKey(publicKey);
+      let safeCode = crypt.encrypt(sourceCode);
+      return safeCode;
+    }
+    let resetCode = function(safeCode){
+      let crypt = new JSEncrypt(); //创建一个crypt对象。
+      crypt.setPrivateKey(privateKey);
+      let sourceCode = crypt.decrypt(safeCode);
+      return sourceCode;
+    }
+    let sourceCode = 'llshi';
+    let safeCode = safe(sourceCode);
+    console.log('还原之后的明文：'+resetCode(safeCode),'加密之后的秘文：'+safeCode);
+  </script>
+</body>
+</html>

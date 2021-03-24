@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding:0;
+}
+.wrapper{
+    display: flex;
+    /* display: inline-flex; */
+    width:600px;
+    height:300px;
+    border: 1px solid black;
+}
+.content{
+    /* 默认值为0 均分空间*/
+    flex-grow:1;
+    /* 表示收缩 收缩比较麻烦，收缩是根据内容区跟加权值来收缩*/
+    /* flex-shrink:; */
+    /* 表示基础用来取代width，权重比width高。默认是auto，相当width，会被内容撑开
+    不设置width，元素宽度最小值=basiswidth*/
+    /* flex-basis:; */
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    box-sizing: border-box;
+}
