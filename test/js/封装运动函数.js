@@ -32,4 +32,10 @@ function scroll(i,e){
   this.index = i;
   const {wrapper} = this.$refs;
   const itemWidth = e.target.offsetWidth;
+  // getBoundingClientRect()接口获取位置信息。具有element的left,right,top,bottom四个属性。
+  const itemleft = e.target.getBoundingClientRect().left;
+  const wrapperWidth = wrapper.offsetWidth;
+  move(wrapper.scrollLeft,itemleft + itemWidth/2 - wrapperWidth/2,wrapper,scrollLeft);
+  // 移动之后请求数据。
+  
 }
