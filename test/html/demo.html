@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="spki">点我</button>
+  <div class="exported-key"></div>
+  <script src="../js/cryptUtils.js"></script>
+  <!-- <script>
+    function ab2str(buf) {
+  return String.fromCharCode.apply(null, new Uint8Array(buf));
+}
+
+
+async function exportCryptoKey(key) {
+  const exported = await window.crypto.subtle.exportKey(
+    "spki",
+    key
+  );
+  const exportedAsString = ab2str(exported);
+  const exportedAsBase64 = window.btoa(exportedAsString);
+  const pemExported = `-----BEGIN PUBLIC KEY-----\n${exportedAsBase64}\n-----END PUBLIC KEY-----`;
+
+  const exportKeyOutput = document.querySelector(".exported-key");
+  exportKeyOutput.textContent = pemExported;
+}
+
+
+window.crypto.subtle.generateKey(
+  {
+    name: "RSA-OAEP",
+    modulusLength: 2048,
+    publicExponent: new Uint8Array([1, 0, 1]),
+    hash: "SHA-256",
+  },
+  true,
+  ["encrypt", "decrypt"]
+).then((keyPair) => {
+  console.log(keyPair);
+  const exportButton = document.querySelector(".spki");
+  exportButton.addEventListener("click", () => {
+    exportCryptoKey(keyPair.publicKey);
+  });
+});
+  </script> -->
+  <script>
+    function workFn(keyPair){
+      console.log(keyPair);
+    }
+    getRsaKeyPair(null,workFn);
+  </script>
+</body>
+</html>
