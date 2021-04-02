@@ -1,0 +1,38 @@
+/* 解决办法：触发父级元素的bfc */
+/* 触发父级元素bfc的方式
+1） position:absolute;
+2) display:inline-block;
+3) float：left/right
+4）overflow:hideen
+凡是设置来position：absolute；float：left/right的元素，display会自动转黄成inline-block
+*/ 
+.wrapper{
+  background-color: #f40;
+  height:300px;
+  margin-top:30px;
+}
+.content{
+  background-color:#b89;
+  width:100px;
+  height:100px;
+  margin-top:50px;
+}
+/* 解决margin塌陷 */
+.wrapper{
+  /* 加一个顶，不推荐 */
+  border-top:1px solid;
+}
+/*把content的display设置成flex，inline-block，或者把wrapper的display设置成flex*/
+.content{
+  border-top:0;
+  display:flex;
+}
+.wrapper{
+  overflow: hidden;
+}
+.content{
+  display:block;
+}
+/* margin合并问题：解决方法，设置一个margin值就可以*/
+
+

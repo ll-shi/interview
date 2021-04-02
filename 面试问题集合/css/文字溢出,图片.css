@@ -1,0 +1,15 @@
+/* 单行文字溢出三件套 */
+.hidden{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;  
+}
+/* 多行隐藏 缺点：兼容性一般*/
+.hidden{
+  -webkit-line-clamp: 2;
+  display:webkit-box;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+/* 不显示三个点，使用overflow：hidden。行数 = height / line-height。根据这个来设置高度，如果非得显示那就使用伪元素来盖住*/

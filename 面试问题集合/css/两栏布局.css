@@ -1,0 +1,68 @@
+/* 两栏布局，一个固定宽度，一个自适应。
+思路：一个设置宽度固定，一个不设置宽度，让其能够自动拉升。
+*/
+*{
+  padding:0;
+  margin:0;
+}
+.right{
+  width:100px;
+  height:100px;
+  background-color: #fcc;
+  position:absolute;
+  right:0;
+}
+.left{
+  height:100px;
+  background-color: #123;
+  margin-right:100px;
+}
+/* 两边固定，中间自适应 */
+.left{
+  position:absolute;
+  left:0;
+  height:100px;
+  width:100px;
+  background-color: #123;
+}
+.center{
+  height:100px;
+  background-color: #f40;
+  margin-right:100px;
+  margin-left:100px;
+}
+/* flex布局写法，两边固定，中间自适应 */
+.wrapper{
+  display:flex;
+}
+.wrapper .content:first-of-type{
+  /* 注意点flex布局默认flex是0 1 auto 就是不会扩大，会收缩，所以固定部分需要设置成 0 0 auto 
+  flex-basis:auto; 就是让width的最小值等于width。
+  */
+  flex:0 0 auto;
+  width:100px;
+  height:100px;
+  background-color: #fcc;
+}
+.wrapper .content:nth-of-type(2){
+  height:100px;
+  flex:1 1 auto;
+  background-color: skyblue;
+}
+.wrapper .content:nth-of-type(3){
+  flex:0 0 auto;
+  width:100px;
+  height:100px;
+  background-color: green;
+}
+/* 中间固定，两边自适应。这个非常简单 */
+.wrapper1 {
+  height:100px;
+  background-color: #123;
+}
+.center1{
+  width:1200px;
+  height:100px;
+  margin:0 auto;
+  background-color: #00f;
+}

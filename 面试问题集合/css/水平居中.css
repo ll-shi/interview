@@ -1,0 +1,12 @@
+/* 使用定位居中 */
+.center{
+  position: absolute;
+  left:50%;
+  top:50;
+  width:100px;
+  height:100px;
+  margin-left:-50px;
+  margin-top:-50px;
+  /* z-index这个属性只有在position定位中才有效 */
+  z-index:100;
+}

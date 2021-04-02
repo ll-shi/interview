@@ -1,0 +1,15 @@
+  /* 文字替代图片问题
+    为什么：在网络不好的情况下，图片加载不出来（系统会把css跟js屏蔽掉）就的用文字来代替。
+    怎么做： 
+  */
+  .text{
+    text-indent:-9999px;
+    white-space: nowrap;
+    overflow:hidden;
+  }
+  .text{
+    /* 利用padding是可以放图片 */
+    height:0;
+    overflow:hidden;
+    padding-top:50px;
+  }
