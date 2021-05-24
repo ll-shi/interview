@@ -6,8 +6,9 @@
  * 3）共享原型 让多个function同时继承一个原型对象。 弊端：修改一个function的原型，其他function也会受影响。
  * 4）圣杯模式 
  * 多继承：mixin模式
+ * 其实是构造函数的继承
  */
-// 圣杯布局
+// 圣杯模式
 function inherit(origin,target){
   var Fn = function(){};
   Fn.prototype = origin.prototype;
