@@ -40,5 +40,16 @@ function Person(name,age){
   this.name = name;
   this.age = age;
 }
+// 创建子类
+function superClass(){
+  superClass.prototype = {
+    // 定义父类上的方法
+  }
+}
+function subClass(){
+  subClass.prototype = Object.create(superClass.prototype,Object.getOwnPropertyDescriptors({
+    // 定义方法或者属性
+  }))
+}
 var person = new Person('llshi',1);
 person instanceof Person; // true

@@ -1,0 +1,21 @@
+body{
+  /* 安卓，ios默认字体不一样 */
+  font-family: helvetica;
+  margin:0;
+}
+body *{
+  /* 禁止长按弹出菜单栏 */
+  -webkit-touch-callout:none;
+  /* 解决横竖屏字体大小改变 */
+  -webkit-text-size-adjust:100%;
+  /* 禁止用户选中文字 */
+  user-select: none;
+}
+/* 安卓标签点击 */
+a,input,button{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+/* 解决按钮在ios下面都是圆角的问题 */
+button,input{
+  -webkit-appearance:none;
+}

@@ -1,0 +1,57 @@
+/* 3d效果注意点：
+1）人眼位置，不同位置会导致观察效果不同。
+2）旋转位置，不同的旋转位置会导致旋转效果不同。
+ */
+/* :root这里就是html */
+/* :root{
+  height:100%;
+}
+body{
+  height:100%;
+} */
+img{
+  width:300px;
+  height:300px;
+  position:absolute;
+}
+img:nth-of-type(6){
+  transform:rotateX(90deg) translateZ(150px) translateY(150px);
+}
+img:nth-of-type(5){
+  transform:rotateX(-90deg) translateZ(150px) translateY(-150px);
+}
+img:nth-of-type(4){
+  transform: translateZ(300px);
+}
+img:nth-of-type(3){
+  transform: rotateY(90deg) translateZ(150px) translateX(-150px);
+}
+img:nth-of-type(2){
+  transform: rotateY(-90deg) translateZ(150px) translateX(150px); 
+}
+@keyframes round{
+  0%{
+    transform:rotateX(-22deg) rotateY(27deg) rotateZ(-23deg);
+  }
+  100%{
+    transform:rotateX(-600deg) rotateY(400deg) rotateZ(-300deg);
+  }
+}
+.wrapper{
+  height:300px;
+  width:300px;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto auto;
+  transform: rotateX(-22deg) rotateY(27deg) rotateZ(-23deg);
+  animation: round 10s linear alternate infinite;
+  transform-style: preserve-3d;
+  /* 3d效果需要加上transform-style属性， */
+}
+.changePhoto{  
+  perspective: 2000px; 
+  height:100vh;
+}
