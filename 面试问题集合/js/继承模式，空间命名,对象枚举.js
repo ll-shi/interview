@@ -47,6 +47,7 @@ function superClass(){
   }
 }
 function subClass(){
+  // 也可以达到圣杯模式继承的效果。
   subClass.prototype = Object.create(superClass.prototype,Object.getOwnPropertyDescriptors({
     // 定义方法或者属性
   }))
