@@ -30,7 +30,7 @@ function RSA2text(buffer,isPrivate=0) {
   text += "\n-----END "+(isPrivate?"PRIVATE":"PUBLIC")+" KEY-----";
   return text;
 }
-console.log(keyPair);
+// console.log(keyPair);
 
 function ab2str(buf) {
   return String.fromCharCode.apply(null, new Uint8Array(buf));

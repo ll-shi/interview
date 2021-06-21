@@ -33,7 +33,6 @@ class VueRouter{
       })
       window.addEventListener('popstate',() => {
         this.history.current.path = location.pathname;
-        console.log(this.history.current.path);
       })
     }
     this.mode === 'hash' ? hashMode() : historyMode();

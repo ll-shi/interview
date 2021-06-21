@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import VueRouter from './vue-router';
-import Home from './views/Home'
-Vue.use(VueRouter);
+import VueRouter from '../../vue-router原理/src/vue-router'
+import Vue from 'vue'
+import Home from './views/Home.vue'
+Vue.use(VueRouter)
 let routes = [
   {
     path:'/',
@@ -27,4 +27,4 @@ let routes = [
 export default new VueRouter({
   routes,
   mode:'history'
-})
+});
