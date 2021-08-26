@@ -26,10 +26,12 @@ let root = {
 function add(root,initStr='',nums=[]){
   let next = ()=>{
     let str = initStr + root.val;
-    root.left ? add(root.left,str,nums) : nums.push(+str);
+    !root.left && !root.right && nums.push(+str);
+    root.left && add(root.left,str,nums);
     root.right && add(root.right,str,nums);
   }
   root && next();
+  console.log(nums);
   return nums.reduce((prev,cur) => prev + cur,0);
 }
 let result = add(root);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 建立普通任务
+    let count = 0;
+    let startTime = Date.now();//performance.now()不受系统时间影响。
+    let runTime;
+    setInterval(()=>{
+      runTime = Date.now();
+      count++;
+      console.log('普通任务：',count + '延时:',runTime - (startTime+1000));
+      startTime = Date.now();
+    },1000);
+    setInterval(()=>{
+      let i = 0;
+      while(i++<100000000);
+    },0)
+    let worker = new Worker('./worker.js');
+  </script>
+</body>
+</html>
